@@ -1,0 +1,26 @@
+<h2>Edycja ankiety <em><%= @questionnaire.title%></em></h2>
+
+<%= form_for(@questionnaire) do |f| %>
+  
+  <div>
+  <div><%= f.label :title, "Tytuł ankiety" %></div>
+  <%=f.error_message_on(:title) %>
+  <%= f.text_field :title %></div>
+
+  <fieldset class="questions">
+    <div class="question-template hidden">
+      <div><%= label_tag "questionnaire_questions_attributes_0_question", "Pytanie" %></div>
+      <%= text_field_tag "questionnaire[questions_attributes][0][question]" %>
+    </div>
+    
+  <ol>    
+  <%= f.fields_for(:questions) do |fquestion| %>
+    <%= render :partial => "questions/question", :locals => {:fquestion => fquestion, :f => f} %>
+  <% end %>
+  </ol>
+  <a href="#" class="addQuestion">Dodaj pytanie</a>
+  
+  </fieldset>
+  
+  <div><%= f.submit "Zapisz zmiany" %></div>
+<% end %>

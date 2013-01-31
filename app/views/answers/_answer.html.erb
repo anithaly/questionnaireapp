@@ -1,0 +1,6 @@
+  <fieldset class="fieldAnswer">
+    <div><%= fanswer.label :answer, "Odpowiedź" %></div>
+    <%= fanswer.error_message_on(:answer) %>
+    <%= fanswer.text_field :answer %>
+    <%= fanswer.hidden_field :question_id %>
+  </fieldset>

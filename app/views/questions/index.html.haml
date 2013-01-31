@@ -1,0 +1,8 @@
+%div.page-header
+  %h1= @questionnaire.title
+
+%p Na wypełnienie tej ankiety masz #{@questionnaire.filling_duration} minut!
+
+%ol
+  - @questionnaire.questions.each do |q|
+    %li= q.question

@@ -1,0 +1,6 @@
+%ul
+  - questionnaires.each do |questionnaire|
+    %li
+      %h2= link_to questionnaire.title, questionnaire_path(questionnaire)
+      == Ankieta dodana przez #{link_to questionnaire.user.username, user_path(questionnaire.user)}
+      == w dniu #{questionnaire.created_at.to_formatted_s(:short)}

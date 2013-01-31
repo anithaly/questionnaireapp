@@ -1,0 +1,19 @@
+%div.page-header
+  %h1== #{@questionnaire.title}
+  
+  
+-#%p Na wypełnienie tej ankiety masz #{@questionnaire.filling_duration} minut!
+
+= form_for("answers[]", :url => submit_questionnaire_path(@questionnaire), :method => :post) do |f|
+  %fieldset.questions
+    %ol
+      - @answers.each_with_index do |item,index|
+        %li
+          = fields_for "answers[#{index}]" do |fanswer| 
+            = fanswer.label :answer, item[:question].question
+            = fanswer.text_area :answer, :class => "span8", :rows => 2
+            = hidden_field_tag "answers[#{index}][question_id]", item[:question].id
+
+
+  %div.form-actions
+    = f.submit "Wyślij odpowiedzi", :class => "btn btn-primary"

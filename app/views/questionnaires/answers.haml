@@ -1,0 +1,13 @@
+%div.page-header
+  %h1
+    = @questionnaire.title
+    %small Wyniki ankiety
+
+- @questionnaire.questions.each_with_index do |q, index|
+  %h3== #{index+1}. #{q.question}
+  
+  %ul
+    - q.answers.each do |a|
+      %li
+        %strong==#{a.answer}
+        == przez #{link_to(a.user.username, a.user)}

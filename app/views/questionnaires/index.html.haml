@@ -1,0 +1,8 @@
+%div.page-header
+  %h1 Dostępne ankiety
+
+- if @questionnaires.blank?
+  %p Nie ma jeszcze żadnych publicznych ankiet.
+- else
+
+  = render :partial => 'list', :locals => {:questionnaires => @questionnaires}

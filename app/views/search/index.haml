@@ -1,0 +1,12 @@
+%div.page-header
+  %h1 Wyszukiwarka
+
+
+= form_for(:search, :url => search_results_url, :method => :get) do |form|
+  %div.field
+    %label{} Nazwa ankiety zawiera frazę:
+    = text_field_tag "search[questionnaire_name]", '', :class => "span4"
+
+
+  %div.form-actions
+    = form.submit "Szukaj", :class => "btn btn-primary"

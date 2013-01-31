@@ -1,0 +1,10 @@
+%div.hero-unit
+  %h1== #{@questionnaire.title}
+  
+  %p
+    ==Autor: #{link_to(@questionnaire.user.username, user_path(@questionnaire.user))}
+    -#&mdash;
+    -#== #{@questionnaire.questions.count} pytań w #{@questionnaire.filling_duration} minut.
+  
+  %div.actions
+    = link_to "Wypełnij ankietę", fill_questionnaire_path(@questionnaire), :class => "btn btn-primary btn-large"

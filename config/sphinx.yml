@@ -1,0 +1,30 @@
+development:
+  address: localhost
+  port: 3314
+  stopwords: db/sphinx/stopwords.utf8.txt
+  wordforms: db/sphinx/polish.utf8.txt
+  charset_type: utf-8
+  enable_star: 1
+  morphology: "none"
+  min_word_len: 2
+  min_prefix_len: 3
+  charset_table: "0..9, A..Z->a..z, _, a..z, U+0104..U+0107, U+0118,U+0119,U+0141..U+0144,U+015A,U+015B, U+0179..U+017C, U+00F3, U+00D3"
+  #                                           ą,Ą,ć,Ć,             ę,Ę,      Ł,ł, Ń, ń,     Ś      ś,      Ź,ź, Ż, ż      ó        Ó
+  # source: http://www.utf8-chartable.de/unicode-utf8-table.pl
+staging:
+  address: localhost
+  port: 3312
+
+production:
+  address: localhost
+  port: 3314
+  stopwords: db/sphinx/stopwords.utf8.txt
+  wordforms: db/sphinx/polish.utf8.txt
+  charset_type: utf-8
+  enable_star: 1
+  morphology: "none"
+  min_word_len: 2
+  min_prefix_len: 3
+  charset_table: "0..9, A..Z->a..z, _, a..z, U+0104..U+0107, U+0118,U+0119,U+0141..U+0144,U+015A,U+015B, U+0179..U+017C, U+00F3, U+00D3"
+  #                                           ą,Ą,ć,Ć,             ę,Ę,      Ł,ł, Ń, ń,     Ś      ś,      Ź,ź, Ż, ż      ó        Ó
+  # source: http://www.utf8-chartable.de/unicode-utf8-table.pl

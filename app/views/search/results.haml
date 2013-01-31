@@ -1,0 +1,13 @@
+%div.page-header
+  %h1 Wyniki wyszukiwania
+  
+
+- if @params[:questionnaire_name]
+  %p== Nazwa ankiety zawiera frazę: #{@params[:questionnaire_name]}
+  
+- if @questionnaires.blank?
+  %p.empty Nie znaleziono wyników!
+- else
+  %p.found==Znaleziono wyników: <strong>#{@questionnaires.size}</strong>
+  
+  = render :partial => 'questionnaires/list', :locals => {:questionnaires => @questionnaires}

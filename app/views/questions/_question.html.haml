@@ -1,0 +1,8 @@
+%li.fieldQuestion
+  %div.field
+    = fquestion.label :question, "Treść pytania:" 
+    = fquestion.text_field :question, :class => "span8"
+    = fquestion.error_message_on(:question)
+    
+    - unless f.object.new?
+      = link_to "Usuń teraz", questionnaire_question_path(f.object, fquestion.object), :method => :delete, :remote => true, :class => "btn btn-small removeExistingQuestion"

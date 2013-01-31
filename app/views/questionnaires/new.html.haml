@@ -1,0 +1,41 @@
+%div.page-header
+  %h1 Nowa ankieta
+
+= form_for(@questionnaire) do |f|
+  %fieldset
+    
+    %div.field
+      = f.label :title, "Tytuł ankiety"
+      = f.text_field :title, :class => "span6"
+      =f.error_message_on(:title)
+     
+    -# %div.field
+      %label.checkbox{:for => "questionnaire_public"}
+        = f.check_box :public
+        Wyświetlaj na liście publicznych ankiet
+  
+    -# %div.field
+      = f.label :filling_duration, "Czas na wypełnienie ankiety:"
+      = f.text_field :filling_duration, :class => "span1"
+      %span.help-inline Podaj czas w minutach
+      =f.error_message_on(:filling_duration)  
+  
+  %fieldset.questions
+    %legend Lista pytań
+    
+    %div.question-template.hidden  
+      %div.field
+        = label_tag "____questionnaire_questions_attributes_NUM_question", "Treść pytania:"
+        = text_field_tag "____questionnaire[questions_attributes][NUM][question]", '', :class => "span8"
+        %a{:href=>"#", :class=>"removeQuestion btn btn-small"} ×
+    
+    %ol  
+      = f.fields_for(:questions) do |fquestion|
+        = render :partial => "questions/question", :locals => {:fquestion => fquestion, :f => f}
+      
+    %div.action
+      %a{:href => '#', :class => "addQuestion btn"} Dodaj kolejne pytanie
+  
+
+  %div.form-actions
+    = f.submit "Zapisz ankietę", :class => "btn btn-primary"
