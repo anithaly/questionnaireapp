@@ -38,12 +38,16 @@ in my case under /var/lib/mongodb
 h2. Features
 
 h4. generating statistics
-generating statistics for the words in answers; execute in main directory; example of using;
+
+generating statistics for the words in answers, execute in main directory, example of using
 @indexer --config config/production.sphinx.conf questionnaire_core --buildstops word_freq.txt 1000 --buildfreqs@
+
+config/production.sphinx.conf is generated file
 
 example output file is *word_freq.txt* 
 
 h4. searching using dictionaries
+
 stopwords: db/sphinx/stopwords.utf8.txt
 wordforms: db/sphinx/polish.utf8.txt
 
