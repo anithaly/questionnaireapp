@@ -1,16 +1,11 @@
 h1. Questionnaireapp
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+System for managing questionnaires and retrieving them using MongoDB
 
 h2. More Information
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-h2. Required Gems
-
-This application requires this gem:
-
-* "rails":http://rubygems.org/gems/rails
+College classes project 2011/2012
+experiment with *Ruby on Rails 3, MongoDB, Mongoid, Sphinx*
 
 h2. Dependencies
 
@@ -18,42 +13,44 @@ To use this application, you will need:
 
 * The Ruby language (version 1.8.7 or 1.9.2)
 * Rails (version 3.0.4 or newer)
+* MongoDB
+* Sphinx
 
 h2. Installing the Application
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+rvm install 1.9.3-p0
+rvm use 1.9.3-p0 --default
 
-h2. Getting Started
+gem update
+bundle install
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+rake mongoid_sphinx:configure
+rake mongoid_sphinx:index
+rake mongoid_sphinx:start
+rake ms:start
 
-h2. Documentation and Support
+rails server
 
-This is the only documentation.
+h4. Databases
 
-h4. Issues
+in my case under /var/lib/mongodb
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+h2. Features
 
-h2. Similar Projects
+h4. generating statistics
+generating statistics for the words in answers; execute in main directory; example of using;
+@indexer --config config/production.sphinx.conf questionnaire_core --buildstops word_freq.txt 1000 --buildfreqs@
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+example output file is *word_freq.txt* 
 
-h2. Contributing
-
-If you make improvements to this application, please share with others.
-
-* Fork the project on GitHub.
-* Make your feature addition or bug fix.
-* Commit with Git.
-* Send the author a pull request.
-
-If you add functionality to this application, create an alternative implementation, or build an application that is similar, please contact me and I'll add a note to the README so that others can find your work.
+h4. searching using dictionaries
+stopwords: db/sphinx/stopwords.utf8.txt
+wordforms: db/sphinx/polish.utf8.txt
 
 h2. Credits
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Natalia Stanko
 
 h2. License
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+BSD License
